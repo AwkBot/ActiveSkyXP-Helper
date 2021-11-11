@@ -19,7 +19,11 @@ local ActiveSkyXMLFile = "metar_asxp.xml"
 local DataASXP = {}
 local asxpICAO = ""
 local asxpMetar = ""
+local asxpTimestamp = 0
 local getMetar = false
+local changedMetar = true
+
+DataRef("asxpZulu", "sim/time/zulu_time_sec")
 
 if not SUPPORTS_FLOATING_WINDOWS then
   -- to make sure the script doesn't stop old FlyWithLua versions
@@ -27,6 +31,17 @@ if not SUPPORTS_FLOATING_WINDOWS then
   return
 end
 
+function timeConvert(seconds)
+  local seconds = tonumber(seconds)
+
+  if seconds <= 0 then
+    return "no data";
+  else
+    hours = string.format("%02.f", math.floor(seconds/3600));
+    mins = string.format("%02.f", math.floor(seconds/60 - (hours*60)));
+    return hours..":"..mins
+  end
+end
 
 function metarGet()
   local webRespose, webStatus = http.request("http://localhost:19285/ActiveSky/API/GetMetarInfoAt?ICAO=" .. asxpICAO)
@@ -36,11 +51,19 @@ function metarGet()
     return false
   end
 
+  if asxpMetar == webRespose then
+	changedMetar = false
+  else
+    changedMetar = true
+  end 
+  
   asxpMetar = webRespose;
+  return true
 end
 
 function asxp_on_build(sb_wnd, x, y)
-  imgui.TextUnformatted(string.format("Enter ICAO airport."))
+  imgui.TextUnformatted(string.format("Airport ICAO"))
+  imgui.SameLine()
   
   local changed, tmpICAO = imgui.InputText(" ", asxpICAO, 5)
   if changed then
@@ -50,16 +73,33 @@ function asxp_on_build(sb_wnd, x, y)
     -- BUTTON
   if imgui.Button("Get Metar") then
     if asxpICAO ~= nil then
-	  metarGet()
-      getMetar = true
+	  if metarGet() then
+		asxpTimestamp = timeConvert(asxpZulu)
+        getMetar = true
+	  end
     end
   end
   
   if getMetar then
-	imgui.TextUnformatted(string.format(""))
+	if asxpTimestamp ~= "" then
+	  imgui.SameLine()
+	  
+      if changedMetar then
+	    imgui.PushStyleColor(imgui.constant.Col.Text, 0xFFFFFF00)
+      end
+	
+	  imgui.TextUnformatted(string.format("  Last Refresh: " .. asxpTimestamp .. "z"))
+	  
+      if changedMetar then
+	    imgui.PopStyleColor()
+       end
+	end
+	
+	imgui.TextUnformatted(string.format(" "))
 	imgui.TextUnformatted(string.sub(asxpMetar, 0, 67))
 	imgui.TextUnformatted(string.sub(asxpMetar, 68, 136))
 	imgui.TextUnformatted(string.sub(asxpMetar, 137, 203))
+	
   end
 end
 
