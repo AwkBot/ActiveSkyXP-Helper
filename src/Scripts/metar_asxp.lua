@@ -1,5 +1,5 @@
 -- ActiveSky XP 
--- Version 0.2
+-- Version 0.3
 -- Carlos Eduardo Sampaio - 2021
 
 -- Description: It get METAR information from activeSkype API
