@@ -1,4 +1,4 @@
-# ActriveSkyXP-Helper
+# ActiveSkyXP-Helper
 Plugin for XPlane 11 that retrieve metar from ActiveSky.
 
 It request the metar information from running ActiveSky thought its HTTP port, note that ActiveSky should use standard HTTP port (19285).
