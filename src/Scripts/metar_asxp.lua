@@ -1,8 +1,10 @@
 -- ActiveSky XP 
+-- Version 0.2
 -- Carlos Eduardo Sampaio - 2021
 
 -- Description: It get METAR information from activeSkype API
 -- Based on SimBrief Helper Plugin
+
 
 -- Modules
 local xml2lua = require("xml2lua")
