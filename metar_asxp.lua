@@ -30,7 +30,7 @@ function metarGet()
   local webRespose, webStatus = http.request("http://localhost:19285/ActiveSky/API/GetMetarInfoAt?ICAO=" .. asxpICAO)
 
   if webStatus ~= 200 then
-    logMsg("Simbrief API is not responding OK")
+    logMsg("ActiveSky API is not responding OK")
     return false
   end
 
