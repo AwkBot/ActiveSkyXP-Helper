@@ -149,7 +149,7 @@ function asxp_on_build(sb_wnd, x, y)
 	  
 	  imgui.Separator()
 	  for i=1, DataASXP["WINDS"] do
-	    imgui.TextUnformatted(string.format("%6d               %3d/%3d               %2d", DataASXP["WA"..i], DataASXP["WD"..i], DataASXP["WS"..i], DataASXP["WT"..i]))
+	    imgui.TextUnformatted(string.format("%6d               %3d/%3d              %3d", DataASXP["WA"..i], DataASXP["WD"..i], DataASXP["WS"..i], DataASXP["WT"..i]))
 	  end
 	end
   
