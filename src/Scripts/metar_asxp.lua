@@ -1,5 +1,5 @@
 -- ActiveSky XP 
--- Version 0.3
+-- Version 0.4
 -- Carlos Eduardo Sampaio - 2021
 
 -- Description: It get METAR information from activeSkype API
@@ -48,6 +48,7 @@ function metarGet()
 
   if webStatus ~= 200 then
     logMsg("ActiveSky API is not responding OK")
+	asxpMetar = "Cannot contact ActiveSky"
     return false
   end
 
@@ -74,9 +75,11 @@ function asxp_on_build(sb_wnd, x, y)
   if imgui.Button("Get Metar") then
     if asxpICAO ~= nil then
 	  if metarGet() then
-		asxpTimestamp = timeConvert(asxpZulu)
-        getMetar = true
+        asxpTimestamp = timeConvert(asxpZulu)
 	  end
+	  
+	  asxpTimestamp = timeConvert(asxpZulu)
+	  getMetar = true
     end
   end
   
