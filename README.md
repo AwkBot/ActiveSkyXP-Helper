@@ -17,6 +17,9 @@ Contributors:
 
 Change History:
 
+V 0.6 - 12/Nov/2021 (Thank you @dechilders)
+- Display wind layers
+
 V 0.5 - 12/Nov/2021 (Thank you @dechilders)
 - Fixes several typos
 - keyboard shortcut changed to "FlyWithLua/ActiveSkyMetar/show_toggle"
