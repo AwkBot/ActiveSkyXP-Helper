@@ -1,15 +1,14 @@
 # ActiveSkyXP-Helper
-Plugin for XPlane 11 that retrieve metar from ActiveSky.
+A plugin for X-Plane 11 that retrieves METAR's from ActiveSky.
 
 ![ActiveSkyXP-Helper](https://user-images.githubusercontent.com/49170559/141481160-9cff5913-4b8b-4951-ae08-2076b04945e3.PNG)
 
-It request the metar information from running ActiveSky thought its HTTP port, note that ActiveSky should use standard HTTP port (19285).
-The command "FlyWithLua/ActiveSkypeMetar/show_toggle" is available to support keyboard/button shortcut.
+This plugin requests the METAR information from a running ActiveSky instance through it's HTTP port, note that ActiveSky should use it's default HTTP port (19285).
+The command "FlyWithLua/ActiveSkyMetar/show_toggle" is available to support a keyboard/button shortcut.
 
-It requires FlyWithLua plugin.
+This plugin requires the [FlyWithLua](https://forums.x-plane.org/index.php?/files/file/38445-flywithlua-ng-next-generation-edition-for-x-plane-11-win-lin-mac/) plugin to function properly.
 
-ActiveSkype network port should be set to defaul value:
-Port: 19285
+The ActiveSky network port should be set to the default value (19285):
 ![ActiveSky](https://user-images.githubusercontent.com/49170559/141481241-06ff8726-20b8-4efd-be93-c7e660759b9a.PNG)
 
 Change History:
