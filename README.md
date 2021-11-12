@@ -17,6 +17,10 @@ Contributors:
 
 Change History:
 
+V 0.5 - 12/Nov/2021 (Thank you @dechilders)
+- Fixes several typos
+- keyboard shortcut changed to "FlyWithLua/ActiveSkyMetar/show_toggle"
+
 V 0.4 - 12/Nov/2021
 - Enhanced warning message when ActiveSky is not running
 
