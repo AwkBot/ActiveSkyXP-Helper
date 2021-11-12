@@ -1,7 +1,7 @@
 # ActiveSkyXP-Helper
 A plugin for X-Plane 11 that retrieves METAR's from ActiveSky.
 
-![ActiveSkyXP-Helper](https://user-images.githubusercontent.com/49170559/141481160-9cff5913-4b8b-4951-ae08-2076b04945e3.PNG)
+![ActiveSkyXP-Helper](https://user-images.githubusercontent.com/49170559/141523047-2dad5382-0a45-4cce-80d2-227852b76754.PNG)
 
 This plugin requests the METAR information from a running ActiveSky instance through it's HTTP port, note that ActiveSky should use it's default HTTP port (19285).
 The command "FlyWithLua/ActiveSkyMetar/show_toggle" is available to support a keyboard/button shortcut.
@@ -37,3 +37,4 @@ V 0.2 - 10/Nov/2021
 - Includes dependency modules (originally used by simbrief)
 - New repository structure
 - New package structure
+
