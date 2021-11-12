@@ -12,10 +12,10 @@ The ActiveSky network port should be set to the default value (19285):
 ![ActiveSky](https://user-images.githubusercontent.com/49170559/141481241-06ff8726-20b8-4efd-be93-c7e660759b9a.PNG)
 
 
-Contributors:
+# Contributors:
 - dechilders 
 
-Change History:
+# Change History:
 
 V 0.5 - 12/Nov/2021 (Thank you @dechilders)
 - Fixes several typos
