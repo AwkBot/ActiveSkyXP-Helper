@@ -11,6 +11,10 @@ This plugin requires the [FlyWithLua](https://forums.x-plane.org/index.php?/file
 The ActiveSky network port should be set to the default value (19285):
 ![ActiveSky](https://user-images.githubusercontent.com/49170559/141481241-06ff8726-20b8-4efd-be93-c7e660759b9a.PNG)
 
+
+Contributors:
+- dechilders 
+
 Change History:
 
 V 0.4 - 12/Nov/2021
