@@ -2,7 +2,7 @@
 -- Version 0.4
 -- Carlos Eduardo Sampaio - 2021
 
--- Description: It get METAR information from activeSkype API
+-- Description: It gets METAR information from the ActiveSky API
 -- Based on SimBrief Helper Plugin
 
 
@@ -72,7 +72,7 @@ function asxp_on_build(sb_wnd, x, y)
   end
   
     -- BUTTON
-  if imgui.Button("Get Metar") then
+  if imgui.Button("Get METAR") then
     if asxpICAO ~= nil then
 	  if metarGet() then
         asxpTimestamp = timeConvert(asxpZulu)
@@ -110,7 +110,7 @@ asxp_wnd = nil
 function asxp_show_wnd()
   asxp_wnd = float_wnd_create(500, 150, 1, true)
   --float_wnd_set_imgui_font(asxp_wnd, 2)
-  float_wnd_set_title(asxp_wnd, "ActiveSky Metar")
+  float_wnd_set_title(asxp_wnd, "ActiveSky METAR")
   float_wnd_set_imgui_builder(asxp_wnd, "asxp_on_build")
   float_wnd_set_onclose(asxp_wnd, "asxp_hide_wnd")
 end
@@ -142,4 +142,4 @@ function toggle_asxp_helper_interface()
 end
 
 add_macro("ActiveSky Metar", "asxp_show_wnd()", "asxp_hide_wnd()", "deactivate")
-create_command("FlyWithLua/ActiveSkypeMetar/show_toggle", "open/close ActiveSkype Metar", "toggle_asxp_helper_interface()", "", "")
+create_command("FlyWithLua/ActiveSkyMetar/show_toggle", "open/close ActiveSky METAR", "toggle_asxp_helper_interface()", "", "")
