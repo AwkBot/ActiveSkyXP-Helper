@@ -15,6 +15,7 @@ local socket = require "socket"
 local http = require "socket.http"
 local LIP = require("LIP");
 local ActiveSkyXMLFile = "metar_asxp.xml"
+local ActiveSkySettings = "metar_asxp.ini"
 
 -- Public Variables
 local DataASXP = {}
@@ -26,6 +27,7 @@ local changedMetar = true
 
 local tmp = ""
 local DataASXP = {}
+local SetASXP  = {}
 
 DataRef("asxpZulu", "sim/time/zulu_time_sec")
 
@@ -78,11 +80,15 @@ end
 -- Read METAR information from AcviveSkye and generate XML file
 --##############################################################################################################################
 function metarGet()
+  -- Read Configuration file
+  SetASXP = LIP.load(SCRIPT_DIRECTORY..ActiveSkySettings);
+  local uri = "http://"  .. SetASXP.activesky.host .. ":" .. SetASXP.activesky.port
+  
   -- Get METAR information
-  local webRespose, webStatus = http.request("http://localhost:19285/ActiveSky/API/GetMetarInfoAt?ICAO=" .. asxpICAO)
+  local webRespose, webStatus = http.request(uri .. "/ActiveSky/API/GetMetarInfoAt?ICAO=" .. asxpICAO)
   if webStatus ~= 200 then
     logMsg("ActiveSky API is not responding OK")
-	asxpMetar = "Cannot contact ActiveSky"
+	  asxpMetar = "Cannot contact ActiveSky"
     return false
   end
 
@@ -97,7 +103,7 @@ function metarGet()
   asxpMetar = webRespose;
 
   -- Get Wind Layers from ActiveSky
-  webRespose, webStatus = http.request("http://localhost:19285/ActiveSky/API/GetWeatherInfoXml?icaoid=" .. asxpICAO)
+  webRespose, webStatus = http.request(uri .. "/ActiveSky/API/GetWeatherInfoXml?icaoid=" .. asxpICAO)
   if webStatus ~= 200 then
     logMsg("ActiveSky API is not responding OK")
     return false
