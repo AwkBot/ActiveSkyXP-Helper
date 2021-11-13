@@ -17,7 +17,7 @@ The ActiveSky network port should be set to the default value (19285):
 
 # Change History:
 
-V 0.6 - 12/Nov/2021 (Thank you @dechilders)
+V 0.6 - 12/Nov/2021
 - Display wind layers
 
 V 0.5 - 12/Nov/2021 (Thank you @dechilders)
