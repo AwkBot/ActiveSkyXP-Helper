@@ -183,7 +183,9 @@ end
 asxp_wnd = nil
 function asxp_show_wnd()
   asxp_wnd = float_wnd_create(500, 300, 1, true)
-  --float_wnd_set_imgui_font(asxp_wnd, 2)
+
+  --TODO: remember window position
+  --float_wnd_set_position(asxp_wnd, 400, 200)
   float_wnd_set_title(asxp_wnd, "ActiveSky METAR")
   float_wnd_set_imgui_builder(asxp_wnd, "asxp_on_build")
   float_wnd_set_onclose(asxp_wnd, "asxp_hide_wnd")
