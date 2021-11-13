@@ -17,6 +17,11 @@ The ActiveSky network port should be set to the default value (19285):
 
 # Change History:
 
+V 0.7
+- Fix negative temparatures alignment in Wind Layers
+- Improve detection of AcviveSky communication failure
+- Add configuration file for ActiveSky IP/hostname and Port
+
 V 0.6 - 12/Nov/2021
 - Display wind layers
 
@@ -37,4 +42,3 @@ V 0.2 - 10/Nov/2021
 - Includes dependency modules (originally used by simbrief)
 - New repository structure
 - New package structure
-
