@@ -25,7 +25,8 @@ local asxpTimestamp = ""
 local getMetar = false
 local changedMetar = true
 
-local tmp = ""
+local asxpBigFont = false
+local asxpMetarSplit = 68
 local DataASXP = {}
 local SetASXP  = {}
 
@@ -121,6 +122,16 @@ end
 -- Main GUI
 --##############################################################################################################################
 function asxp_on_build(sb_wnd, x, y)
+
+  -- Define font size based on checkbox value
+  if asxpBigFont then
+    imgui.SetWindowFontScale(1.3)
+    asxpMetarSplit = 53
+  else
+    imgui.SetWindowFontScale(1)
+    asxpMetarSplit = 68
+  end
+
   imgui.TextUnformatted(string.format("Airport ICAO"))
   imgui.SameLine()
   
@@ -129,7 +140,14 @@ function asxp_on_build(sb_wnd, x, y)
    asxpICAO = tmpICAO:upper()
   end
   
-    -- Fetch METAR button
+  -- Checkbox to select bigger font
+  local fontChanged, fontNewVal = imgui.Checkbox("Big font ", asxpBigFont)
+  if fontChanged then
+    asxpBigFont = fontNewVal
+  end
+  imgui.SameLine()
+
+  -- Fetch METAR button
   if imgui.Button("Get METAR") then
     if asxpICAO ~= nil then
       if metarGet() then
@@ -162,9 +180,9 @@ function asxp_on_build(sb_wnd, x, y)
   end
   -- Diusplay METAR information
   imgui.TextUnformatted(string.format(" "))
-  imgui.TextUnformatted(string.sub(asxpMetar, 0, 67))
-  imgui.TextUnformatted(string.sub(asxpMetar, 68, 136))
-  imgui.TextUnformatted(string.sub(asxpMetar, 137, 203))
+  imgui.TextUnformatted(string.sub(asxpMetar, 0, asxpMetarSplit - 1))
+  imgui.TextUnformatted(string.sub(asxpMetar, asxpMetarSplit, 2*asxpMetarSplit-1))
+  imgui.TextUnformatted(string.sub(asxpMetar, 2*asxpMetarSplit, 3*asxpMetarSplit-1))
 	
   -- Display Wind Layer information
   if getMetar then
