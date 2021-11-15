@@ -17,7 +17,7 @@ The ActiveSky network port should be set to the default value (19285):
 
 # Change History:
 V0.8
-- Add a checkbox to use bigger font
+- Add a checkbox to set bigger font
 
 V 0.7
 - Fix negative temparatures alignment in Wind Layers
