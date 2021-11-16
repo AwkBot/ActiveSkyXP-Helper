@@ -3,14 +3,26 @@ A plugin for X-Plane 11 that retrieves METAR's from ActiveSky.
 
 ![ActiveSkyXP-Helper](https://user-images.githubusercontent.com/49170559/141706953-9055ef82-54b0-49d7-9bb0-f6c58263ab31.PNG)
 
-This plugin requests the METAR information from a running ActiveSky instance through it's HTTP port, note that ActiveSky should use it's default HTTP port (19285).
-The command "FlyWithLua/ActiveSkyMetar/show_toggle" is available to support a keyboard/button shortcut.
+This plugin requests the METAR information from a running ActiveSky instance through it's HTTP port, note that ActiveSky should use it's default HTTP port (19285). The command "FlyWithLua/ActiveSkyMetar/show_toggle" is available to support a keyboard/button shortcut. (see screenshot above)
 
 This plugin requires the [FlyWithLua](https://forums.x-plane.org/index.php?/files/file/38445-flywithlua-ng-next-generation-edition-for-x-plane-11-win-lin-mac/) plugin to function properly.
+
+# Instalation
+
+- Copy metar_asxp.lua file to <X-Plane 11 Folder>\Resources\plugins\FlyWithLua\Scripts
+- Copy metar_asxp.ini file to <X-Plane 11 Folder>\Resources\plugins\FlyWithLua\Scripts
+- In case you do not have SImbrief-Helper installed copy the content of modules folder into <X-Plane 11 Folder>\Resources\plugins\FlyWithLua\Modules
 
 The ActiveSky network port should be set to the default value (19285):
 ![ActiveSky](https://user-images.githubusercontent.com/49170559/141481241-06ff8726-20b8-4efd-be93-c7e660759b9a.PNG)
 
+# Specific ActiveSky Configuration
+In case your ActiveSky runs on specific IP and/or Port, the network parameters can be adjusted in metar_asxp.ini file.
+Please, make use of "localhost" instead of 127.0.0.1  for local machine communication. The standard configuration is:
+
+[activesky]
+host=localhost
+port=19285
 
 # Contributors:
 - dechilders 
