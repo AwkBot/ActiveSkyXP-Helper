@@ -3,7 +3,7 @@
 -- Carlos Eduardo Sampaio - 2021
 
 -- Description: It gets METAR information from the ActiveSky API
--- Based on SimBrief Helper Plugin
+-- Based on SimBrief Helper Plugin 
 
 
 -- Modules
