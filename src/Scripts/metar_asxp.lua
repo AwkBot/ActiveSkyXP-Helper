@@ -149,7 +149,7 @@ function asxp_on_build(sb_wnd, x, y)
 
   -- Fetch METAR button
   if imgui.Button("Get METAR") then
-    if asxpICAO ~= nil then
+    if (asxpICAO ~= nil) and (asxpICAO ~= "") then
       if metarGet() then
 	      readASXPXML()
         asxpTimestamp = timeConvert(asxpZulu)
@@ -158,6 +158,8 @@ function asxp_on_build(sb_wnd, x, y)
         getMetar = false
         asxpTimestamp = "Cannot contact AcviveSky"
 	    end
+    else
+      asxpTimestamp = "Enter Airport code"
     end
   end
   
@@ -176,6 +178,7 @@ function asxp_on_build(sb_wnd, x, y)
     imgui.TextUnformatted(string.format("  Last Refresh: " .. asxpTimestamp .. "z"))
     imgui.PopStyleColor()
   else
+    imgui.SameLine()
     imgui.TextUnformatted(string.format("  Last Refresh: " .. asxpTimestamp .. "z"))
   end
   -- Diusplay METAR information

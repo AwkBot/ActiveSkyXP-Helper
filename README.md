@@ -28,31 +28,35 @@ port=19285
 - dechilders 
 
 # Change History:
-V0.8
+
+V0.1.0
+- Improve airport input validation
+
+V0.0.8
 - Add a checkbox to set bigger font
 
-V 0.7
+V 0.0.7
 - Fix negative temparatures alignment in Wind Layers
 - Improve detection of AcviveSky communication failure
 - Add configuration file for ActiveSky IP/hostname and Port
 
-V 0.6 - 12/Nov/2021
+V 0.0.6 - 12/Nov/2021
 - Display wind layers
 
-V 0.5 - 12/Nov/2021 (Thank you @dechilders)
+V 0.0.5 - 12/Nov/2021 (Thank you @dechilders)
 - Fixes several typos
 - keyboard shortcut changed to "FlyWithLua/ActiveSkyMetar/show_toggle"
 
-V 0.4 - 12/Nov/2021
+V 0.0.4 - 12/Nov/2021
 - Enhanced warning message when ActiveSky is not running
 
-V 0.3 - 11/Nov/2021
+V 0.0.3 - 11/Nov/2021
 - Fix freeze issue that happen when ActiveSky is not running
 - Add feature to display Zulu time of last update/query
 - Refresh time is displayed in blue in case of chage in Metar
 
 
-V 0.2 - 10/Nov/2021
+V 0.0.2 - 10/Nov/2021
 - Includes dependency modules (originally used by simbrief)
 - New repository structure
 - New package structure
