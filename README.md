@@ -27,7 +27,6 @@ host=localhost
 port=19285
 
 # Contributors:
-
 - dechilders
 
 # Change History:
