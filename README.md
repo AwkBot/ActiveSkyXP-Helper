@@ -1,4 +1,5 @@
 # ActiveSkyXP-Helper
+
 A plugin for X-Plane 11 that retrieves METAR's from ActiveSky.
 
 ![ActiveSkyXP-Helper](https://user-images.githubusercontent.com/49170559/141706953-9055ef82-54b0-49d7-9bb0-f6c58263ab31.PNG)
@@ -17,46 +18,59 @@ The ActiveSky network port should be set to the default value (19285):
 ![ActiveSky](https://user-images.githubusercontent.com/49170559/141481241-06ff8726-20b8-4efd-be93-c7e660759b9a.PNG)
 
 # Specific ActiveSky Configuration
+
 In case your ActiveSky runs on specific IP and/or Port, the network parameters can be adjusted in metar_asxp.ini file.
-Please, make use of "localhost" instead of 127.0.0.1  for local machine communication. The standard configuration is:
+Please, make use of "localhost" instead of 127.0.0.1 for local machine communication. The standard configuration is:
 
 [activesky]
 host=localhost
 port=19285
 
 # Contributors:
-- dechilders 
+
+- dechilders
 
 # Change History:
 
+V0.2.0
+
+- get METAR automatically when type the ICAO code
+
 V0.1.0
+
 - Improve airport input validation
 
 V0.0.8
+
 - Add a checkbox to set bigger font
 
 V 0.0.7
+
 - Fix negative temparatures alignment in Wind Layers
 - Improve detection of AcviveSky communication failure
 - Add configuration file for ActiveSky IP/hostname and Port
 
 V 0.0.6 - 12/Nov/2021
+
 - Display wind layers
 
 V 0.0.5 - 12/Nov/2021 (Thank you @dechilders)
+
 - Fixes several typos
 - keyboard shortcut changed to "FlyWithLua/ActiveSkyMetar/show_toggle"
 
 V 0.0.4 - 12/Nov/2021
+
 - Enhanced warning message when ActiveSky is not running
 
 V 0.0.3 - 11/Nov/2021
+
 - Fix freeze issue that happen when ActiveSky is not running
 - Add feature to display Zulu time of last update/query
 - Refresh time is displayed in blue in case of chage in Metar
 
-
 V 0.0.2 - 10/Nov/2021
+
 - Includes dependency modules (originally used by simbrief)
 - New repository structure
 - New package structure
