@@ -20,6 +20,7 @@ local ActiveSkySettings = "metar_asxp.ini"
 -- Public Variables
 local DataASXP = {}
 local asxpICAO = ""
+local lastICAO = "XXXX"
 local asxpMetar = ""
 local asxpTimestamp = ""
 local getMetar = false
@@ -135,11 +136,15 @@ function asxp_on_build(sb_wnd, x, y)
   imgui.TextUnformatted(string.format("Airport ICAO"))
   imgui.SameLine()
   
-  local changed, tmpICAO = imgui.InputText(" ", asxpICAO, 5)
+  --local changed, tmpICAO = imgui.InputText("", asxpICAO, 5) --, imgui.constant.InputTextFlags.EnterReturnsTrue)
+  local changed, tmpICAO = imgui.InputText("", asxpICAO, 5)
   if changed then
-   asxpICAO = tmpICAO:upper()
+    asxpICAO = tmpICAO:upper()
   end
-  
+  imgui.TextUnformatted(string.format("lastICO"))
+  imgui.SameLine()
+  imgui.TextUnformatted(lastICAO)
+
   -- Checkbox to select bigger font
   local fontChanged, fontNewVal = imgui.Checkbox("Big font ", asxpBigFont)
   if fontChanged then
@@ -148,8 +153,11 @@ function asxp_on_build(sb_wnd, x, y)
   imgui.SameLine()
 
   -- Fetch METAR button
-  if imgui.Button("Get METAR") then
+  if imgui.Button("Get METAR") or ((string.len(asxpICAO) > 3)) and (lastICAO ~= asxpICAO) then
     if (asxpICAO ~= nil) and (asxpICAO ~= "") then
+
+      lastICAO = asxpICAO
+
       if metarGet() then
 	      readASXPXML()
         asxpTimestamp = timeConvert(asxpZulu)
